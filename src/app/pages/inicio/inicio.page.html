@@ -1,0 +1,66 @@
+<app-header title="Inicio"></app-header>
+
+<ion-content>
+  <!-- Barra de búsqueda -->
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="applyFilters()" placeholder="Buscar por nombre"></ion-searchbar>
+
+  <!-- Menú desplegable para seleccionar el tipo -->
+  <ion-item>
+    <ion-label>Tipo de Producto</ion-label>
+    <ion-select [(ngModel)]="filterType" (ionChange)="applyFilters()">
+      <ion-select-option value="">Todos los tipos</ion-select-option>
+      <ion-select-option value="Electrodoméstico">Electrodoméstico</ion-select-option>
+      <ion-select-option value="Celulares">Celulares</ion-select-option>
+      <ion-select-option value="Computadores">Computadores</ion-select-option>
+      <ion-select-option value="TV">TV</ion-select-option>
+      <ion-select-option value="Accesorios">Accesorios</ion-select-option>
+      <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
+      <ion-select-option value="Audio">Audio</ion-select-option>
+      <ion-select-option value="Cámaras">Cámaras</ion-select-option>
+      <ion-select-option value="Hogar">Hogar</ion-select-option>
+      <ion-select-option value="Deportes">Deportes</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Lista de productos filtrados -->
+  <ion-list>
+    <ion-item-sliding class="product-item" *ngFor="let p of filteredProductos">
+      <ion-item lines="full">
+        <ion-avatar slot="start">
+          <ion-img [src]="p.imageUrl || 'assets/default-product.jpg'"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2><strong>Nombre:</strong> {{ p.name }}</h2>
+          <h3><strong>Precio:</strong> {{ p.price | currency: 'USD' }}</h3>
+          <p><strong>Tipo:</strong> {{ p.tipo }}</p>
+          <p><strong>Descripción:</strong> {{ p.descripcion }}</p>
+          <p><strong>Fecha de Adquisición:</strong> {{ p.fecha }}</p>
+          <p><strong>Presupuesto:</strong> {{ p.presupuesto | currency: 'USD' }}</p>
+          <p><strong>Cantidad:</strong> {{ p.cantidad }}</p>
+          <p><strong>Valor Total:</strong> {{ p.valorTotal | currency: 'USD' }}</p>
+          <p><strong>Proveedor:</strong> {{ p.proveedor }}</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Opciones -->
+      <ion-item-options side="end">
+        <!-- Editar -->
+        <ion-item-option color="tertiary" (click)="addUpdateProduct(p)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-item-option>
+
+        <!-- Eliminar -->
+        <ion-item-option color="danger" (click)="presentAlertConfirm(p)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Nuevo Producto -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="addUpdateProduct()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

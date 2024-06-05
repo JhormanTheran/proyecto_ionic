@@ -1,0 +1,21 @@
+.form-container {
+  background-color: black ; /* Color de fondo del formulario */
+  border-radius: 10px; /* Borde redondeado */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.submit-button {
+  margin-top: 20px; /* Espaciado superior para el botón */
+}
+
+/* Estilos específicos para el modo nocturno */
+@media (prefers-color-scheme: dark) {
+  .form-container {
+    background-color: black; /* Color de fondo en modo nocturno */
+    color: #fff; /* Color del texto en modo nocturno */
+  }
+
+  .validators {
+    color: #ffcccc; /* Color del mensaje de error en modo nocturno */
+  }
+}

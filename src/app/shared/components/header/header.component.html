@@ -1,0 +1,20 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <!--CERRAR MODAL-->
+    <ion-buttons slot="start">
+      <ion-button *ngIf="isModal" (click)="dismissModal()">
+        <ion-icon name="close-circle-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="centered-title">
+      <strong>{{title}}</strong>
+      <div class="admin-badge">JHORMAN</div>
+    </ion-title>
+
+    <!-- Espacio para acciones adicionales si es necesario -->
+    <ion-buttons slot="end">
+      <!-- Aquí podrías agregar botones adicionales si fuese necesario -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

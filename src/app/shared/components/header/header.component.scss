@@ -1,0 +1,41 @@
+.admin{
+  font-size: 13px;
+}
+ion-header {
+  .centered-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .admin-badge {
+    font-size: 0.75em; // Tamaño de fuente más pequeño
+    background-color: #ffffff; // Fondo blanco
+    color: #000000; // Color del texto negro
+    padding: 4px 8px; // Espaciado interno
+    border-radius: 12px; // Bordes redondeados
+    margin-top: 4px; // Margen superior
+  }
+
+  ion-toolbar {
+    position: relative;
+  }
+
+  ion-buttons[slot="start"],
+  ion-buttons[slot="end"] {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  ion-buttons[slot="start"] {
+    left: 16px; // Ajusta según sea necesario
+  }
+
+  ion-buttons[slot="end"] {
+    right: 16px; // Ajusta según sea necesario
+  }
+}

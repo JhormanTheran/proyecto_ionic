@@ -1,0 +1,15 @@
+.custom-input {
+  --background: black; /* Cambia el fondo si es necesario */
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --border-radius: 8px;
+  --border-style: solid;
+  --border-width: 2px;
+  --border-color: #ccc;
+  --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+
+.custom-input ion-input:focus {
+  --border-color: #3880ff; /* Color cuando el input está en foco */
+}

@@ -1,0 +1,15 @@
+<ion-item class="custom-input" lines="none">
+  <ion-label position="floating">{{ label }}</ion-label>
+  <ng-container *ngIf="options && options.length; else inputField">
+    <ion-select [formControl]="control">
+      <ion-select-option *ngFor="let option of options" [value]="option">{{ option }}</ion-select-option>
+    </ion-select>
+  </ng-container>
+  <ng-template #inputField>
+    <ion-input
+      [type]="type"
+      [autocomplete]="autocomplete"
+      [formControl]="control"
+    ></ion-input>
+  </ng-template>
+</ion-item>

@@ -1,0 +1,76 @@
+<app-header isModal="true" [title]="producto ? 'Actualizar Producto' : 'Agregar Producto'"></app-header>
+
+<ion-content class="ion-padding">
+  <!-- Formulario -->
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form-container ion-padding">
+    <!-- Nombre del Producto -->
+    <app-inputs
+      autocomplete="name"
+      [control]="form.controls.name"
+      type="text"
+      label="Ingrese el nombre">
+    </app-inputs>
+
+    <!-- Precio del Producto -->
+    <app-inputs
+      [control]="form.controls.price"
+      type="number"
+      label="Ingrese el precio">
+    </app-inputs>
+
+    <!-- Cantidad del Producto -->
+    <app-inputs
+      [control]="form.controls.cantidad"
+      type="number"
+      label="Ingrese la cantidad">
+    </app-inputs>
+
+    <!-- Presupuesto del Producto -->
+    <app-inputs
+      [control]="form.controls.presupuesto"
+      type="number"
+      label="Ingrese el presupuesto">
+    </app-inputs>
+
+    <!-- Tipo de Producto -->
+    <app-inputs
+      [control]="form.controls.tipo"
+      label="Seleccione el tipo de producto"
+      [options]="['Electrodoméstico', 'Celulares', 'Computadores', 'TV', 'Accesorios', 'Videojuegos', 'Audio', 'Cámaras', 'Hogar', 'Deportes']">
+    </app-inputs>
+
+    <!-- Proveedor -->
+    <app-inputs
+      [control]="form.controls.proveedor"
+      label="Seleccione el proveedor"
+      [options]="['Xiaomi', 'Apple', 'LG', 'Kalley', 'Playstation', 'Xbox', 'Samsung', 'CASIO', 'SONY', 'JBL', 'Puma', 'Nike', 'Adidas Original', 'Altacom', 'Bolzan Letii']">
+    </app-inputs>
+
+    <!-- Descripción del Producto -->
+    <app-inputs
+      [control]="form.controls.descripcion"
+      type="text"
+      label="Ingrese la descripción">
+    </app-inputs>
+
+    <!-- Fecha del Producto -->
+    <app-inputs
+      [control]="form.controls.fecha"
+      type="date"
+      label="Fecha de Adquisición">
+    </app-inputs>
+
+    <!-- Valor Total -->
+    <app-inputs
+      [control]="form.controls.valorTotal"
+      type="number"
+      label="Valor Total">
+    </app-inputs>
+
+    <!-- Botón para enviar formulario -->
+    <ion-button expand="block" mode="ios" type="submit"  class="submit-button">
+      {{ producto ? 'Actualizar Producto' : 'Agregar Producto' }}
+      <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>
